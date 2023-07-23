@@ -1,0 +1,24 @@
+{
+    "name": "mana/cms",
+    "description": "Simple authentication",
+    "authors": [
+        {
+            "name": "adilasmana",
+            "email": "adilasmana12@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Mana\\Cms\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mana\\Cms\\ManaCmsServiceProvider"
+            ]
+        }
+    }
+}
