@@ -1,5 +1,5 @@
 <?php
 
-Route::get('demo', function() {
-    echo 'Hello from the demo package!';
+Route::get('/demo', function () {
+    return 'Hello from the demo form packages';
 });

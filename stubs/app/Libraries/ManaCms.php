@@ -2,6 +2,7 @@
 namespace App\Libraries;
 
 use App\Models\UserLevelMenu;
+use App\Models\UserLevelModuleTask;
 use Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -9,10 +10,10 @@ class ManaCms
 {
 	public static function listMenu()
     {
-        // $userLogin 	= Auth::user();
-        $userLevel 	= null; //$userLogin->user_level_id;
+        $userLogin 	= Auth::user();
+        $userLevel 	= $userLogin->user_level_id;
         
-        $menus = json_decode(json_encode(config('menu')));
+        $menus = json_decode(json_encode(config('cms-menu')));
 
         $userLevelMenuCodes  = UserLevelMenu::where('user_level_id', $userLevel)->pluck('menu_code')->toArray();
 
@@ -74,5 +75,18 @@ class ManaCms
         }
         
         return $result;
+    }
+
+    public static function checkAccess($module, $task)
+    {
+        $userLogin = Auth::user();
+        $userLevel = $userLogin->user_level_id;
+
+        $listUserLevelTask = UserLevelModuleTask::where('user_level_id', $userLevel)->pluck('module_task_code')->toArray();
+        if ((sizeof($listUserLevelTask) && in_array($module.".".$task, $listUserLevelTask)) || $userLevel == null) {
+            return true;
+        }
+
+        return false;
     }
 }

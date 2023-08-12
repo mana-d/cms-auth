@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['cms.access:user,hak-akses']);
+    }
+
     public function index(Request $request)
     {
         $request->validate([

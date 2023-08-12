@@ -8,7 +8,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "doctrine/dbal": "^3.6"
+    },
     "autoload": {
         "psr-4": {
             "Mana\\Cms\\": "src/"

@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class UserLevelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['cms.access:user-level,hak-akses']);
+    }
+
     public function index(Request $request)
     {
         $request->validate([
@@ -162,7 +167,7 @@ class UserLevelController extends Controller
 
         $name = $dataUserLevel->name;
 
-        $menu           = json_decode(json_encode(config('menu')));
+        $menu           = json_decode(json_encode(config('cms-menu')));
         $dataMenu       = [];
         foreach ($menu as $mn) {
             $menuChild  = [];
@@ -223,7 +228,7 @@ class UserLevelController extends Controller
             ];
         }
 
-        $moduleTask = json_decode(json_encode(config('moduletask')));
+        $moduleTask = json_decode(json_encode(config('cms-module-task')));
         $dataModule = [];
         foreach ($moduleTask as $data) {
             $task       = [];

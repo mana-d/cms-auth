@@ -1,0 +1,71 @@
+@layer components {
+    .modal {
+        @apply fixed left-0 right-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full hidden;
+
+        > .modal-dialog {
+            @apply relative w-full h-full px-4 md:h-auto;
+
+            > .modal-content {
+                @apply relative bg-white rounded-lg shadow dark:bg-gray-800;
+
+                > .modal-header {
+                    @apply flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700;
+                    
+                    > .modal-title {
+                        @apply text-xl font-semibold dark:text-white
+                    }
+                }
+
+                > .modal-body {
+                    @apply p-6
+                }
+
+                > .modal-footer {
+                    @apply items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700
+                }
+            }
+
+            &:no(.modal-popup) {
+                > .modal-content {
+                    > .modal-body {
+                        @apply space-y-6
+                    }
+                }
+            }
+
+            &.modal-2xl {
+                @apply max-w-2xl
+            }
+
+            &.modal-popup {
+                @apply max-w-md;
+
+                > .modal-content {
+                    > .modal-header {
+                        @apply flex justify-end p-2 border-b-0
+                    }
+
+                    > .modal-body {
+                        @apply pt-0 text-center
+                    }
+                }
+            }
+        }
+
+        &.fade {
+            @apply opacity-0 transition-opacity duration-300;
+        }
+
+        &.show {
+            display: flex;
+        }
+    }
+
+    .modal-backdrop {
+        @apply fixed bg-gray-900 bg-opacity-50 dark:bg-opacity-80 inset-0 z-40;
+        
+        &.fade {
+            @apply opacity-0 transition-opacity duration-300
+        }
+    }
+}
