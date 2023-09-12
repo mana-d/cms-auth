@@ -24,6 +24,6 @@ class InstallPermisionOnlyCommand extends Command
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/app/models', app_path('/models'));
 		(new Filesystem)->copyDirectory(__DIR__.'/../../stubs/app/libraries', app_path('/libraries'));
 		(new Filesystem)->copyDirectory(__DIR__.'/../../stubs/app/http/middleware', app_path('/http/middleware'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/migration', database_path('/migration'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/migrations', database_path('/migrations'));
     }
 }
