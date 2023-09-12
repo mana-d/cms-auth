@@ -19,7 +19,7 @@ class InstallCommand extends Command
         $this->info("OK");
 
         (new Filesystem)->copy(__DIR__.'/../../stubs/config/cms-menu.php', config_path('cms-menu.php'));
-        (new Filesystem)->copy(__DIR__.'/../../stubs/config/cms-menu.php', config_path('cms-module-task.php'));
+        (new Filesystem)->copy(__DIR__.'/../../stubs/config/cms-module-task.php', config_path('cms-module-task.php'));
 
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/app', app_path('/'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database', database_path('/'));

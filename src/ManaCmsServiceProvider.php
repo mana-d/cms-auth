@@ -39,6 +39,10 @@ class ManaCmsServiceProvider extends ServiceProvider
             $this->commands([
                 Console\InstallCommand::class,
             ]);
+			
+			$this->commands([
+                Console\InstallPermisionOnlyCommand::class,
+            ]);
         }
     }
 
